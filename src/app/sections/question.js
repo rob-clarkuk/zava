@@ -29,7 +29,7 @@ export default function Question(props) {
 
     const [questionPersona, setQuestionPersona] = useState({
         disabled: true,
-        value: 'ee'
+        value: ''
     });
 
     function questionSelect(val) {
@@ -178,9 +178,7 @@ export default function Question(props) {
                                         color="#0E1661"
                                         border="2px solid #0F62F4"
                                         alignSelf="flex-end"
-                                        onClick={() => {
-                                            //props.clickEvent(questionPersona.value);
-                                        }}
+                                        onClick={props.previousClickEvent}
                                     >
                                         Previous
                                     </Button>

@@ -32,7 +32,7 @@ export default function Gender(props) {
                 <Box 
                     w={{ base: "390px", md: "800px" }}
                     maxW="100vw"
-                    h={{ base: "665px", md: "600px" }}
+                    h={{ base: "100vh", md: "600px" }}
                     py={12}
                     px={{ base: 6, md: 12 }}
                     bgColor="#fff"

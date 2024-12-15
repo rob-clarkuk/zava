@@ -5,7 +5,8 @@ import { useState } from 'react'
 import Intro from './sections/intro'
 import Gender from './sections/gender'
 import Question from './sections/question'
-import { questions } from './data'
+import Result from './sections/result'
+import { questions, answers } from './data'
 
 export default function Home() {
 
@@ -43,7 +44,12 @@ export default function Home() {
   
     setPersona(personaCounter);
     setIndex(index + 1);
-    console.log(persona);
+  }
+
+  function reset() {
+    setIndex(0);
+    setGender("neither")
+    setPersona(initialCounters)
   }
 
   return (
@@ -82,7 +88,21 @@ export default function Home() {
           />
         )
       }
-      
+      {
+        answers.map(answer => 
+          <Result
+            key={answer.no}
+            sectionNumber={index}
+            title={answer.title}
+            causes={answer.causes}
+            image={answer.image}
+            content={answer.content}
+            advice={answer.advice}
+            sectionLength={questions.length + 2}
+            resetButton={reset}
+          />
+        )
+      }
     </>
   );
 }

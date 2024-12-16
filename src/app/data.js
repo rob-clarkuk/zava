@@ -422,7 +422,8 @@ export const questions = [{
 export const answers = [{
     no: 1,
     title: 'Emotional Eater',
-    image: '/emotional-eater.png',
+    image: './emotional-eater.png',
+    value: 'ee',
     causes: [
         {
             no: 1,
@@ -457,7 +458,8 @@ export const answers = [{
 {
     no: 2,
     title: 'Stress Snacker',
-    image: '/stress-snacker.png',
+    image: './stress-snacker.png',
+    value: 'ss',
     causes: [
         {
             no: 1,
@@ -488,7 +490,8 @@ export const answers = [{
 {
     no: 3,
     title: 'The Fuel Finder',
-    image: '/fuel-finder.png',
+    image: './fuel-finder.png',
+    value: 'ff',
     causes: [
         {
             no: 1,
@@ -523,7 +526,8 @@ export const answers = [{
 {
     no: 4,
     title: 'Nourishment Seeker',
-    image: '/nourishment-seeker.png',
+    image: './nourishment-seeker.png',
+    value: 'ns',
     causes: [
         {
             no: 1,
@@ -558,7 +562,8 @@ export const answers = [{
 {
     no: 5,
     title: 'Habitual Grazer',
-    image: '/habitual-grazer.png',
+    image: './habitual-grazer.png',
+    value: 'hg',
     causes: [
         {
             no: 1,
@@ -593,7 +598,8 @@ export const answers = [{
 {
     no: 6,
     title: 'Hormone Soother',
-    image: '/hormone-soother.png',
+    image: './hormone-soother.png',
+    value: 'hs',
     causes: [
         {
             no: 1,

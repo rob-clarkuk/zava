@@ -112,6 +112,7 @@ export default function Question(props) {
                                 colorPalette="blue"
                                 onChange={(value) => {
                                     questionSelect(value);
+                                    props.lastEvent(value.target.value);
                                 }}
                             >
                                 <Stack

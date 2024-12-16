@@ -32,7 +32,7 @@ export default function Intro(props) {
     
     return (
         <>
-            <Show when={props.sectionNumber == props.sectionLength}>
+            <Show when={(props.sectionNumber == props.sectionLength) && (props.result.key == props.value)}>
                 <Box
                     position="relative"
                     w={{ base: "390px", md: "800px" }}
@@ -124,7 +124,7 @@ export default function Intro(props) {
                                                 <FontAwesomeIcon icon={fas.faUpRightAndDownLeftFromCenter} />
                                             </Box>
                                             <Image 
-                                                src="/information.svg"
+                                                src="./information.svg"
                                                 w={{base:"50px", md:"auto"}}
                                             />
                                             <Text
@@ -153,7 +153,7 @@ export default function Intro(props) {
                                                 color="white"
                                             >
                                                 <Image 
-                                                    src="/repeat.svg"
+                                                    src="./repeat.svg"
                                                 />
                                                 <Text
                                                     fontSize="xs"
@@ -246,7 +246,7 @@ export default function Intro(props) {
                                     Reveal more
                                 </Text>
                                 <Image 
-                                    src="/hamburger.svg"
+                                    src="./hamburger.svg"
                                 />
                             </Flex>
                         </Button>
@@ -317,7 +317,7 @@ export default function Intro(props) {
                         </Button>
                         <Flex gap={4}>
                             <Image 
-                                src="/info-alt.svg"
+                                src="./info-alt.svg"
                                 w={{base:"50px", md:"80px"}}
                                 fit="contain"
                                 h={{base:"50px", md:"80px"}}

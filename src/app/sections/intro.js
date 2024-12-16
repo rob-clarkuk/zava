@@ -26,7 +26,7 @@ export default function Intro(props) {
                     display="flex"
                     alignItems="flex-end"
                     position='relative'
-                    bgImage='url(/dripping2.png)'
+                    bgImage='url(./dripping2.png)'
                     bgRepeat='no-repeat'
                     bgPos='top right'
                     bgSize={{ base: "80%", md: "60%" }}
@@ -34,7 +34,7 @@ export default function Intro(props) {
                     _before={
                         {
                         content: '""',
-                        bgImage:'url(/bg.svg)',
+                        bgImage:'url(./bg.svg)',
                         bgRepeat:'no-repeat',
                         bgPos:'center',
                         bgSize:'auto',
@@ -49,7 +49,7 @@ export default function Intro(props) {
                 >
                     <Image
                         display={{ base: "block", md: "none" }}
-                        src="/ice-cream4-mob.png"
+                        src="./ice-cream4-mob.png"
                         position="absolute"
                         right={{ base: '-20px', md: 0 }}
                         top={0}
@@ -57,7 +57,7 @@ export default function Intro(props) {
                     />
                     <Image
                         display={{ base: "none", md: "block" }}
-                        src="/ice-cream4.png"
+                        src="./ice-cream4.png"
                         position="absolute"
                         right={{ base: '-20px', md: 0 }}
                         top={0}

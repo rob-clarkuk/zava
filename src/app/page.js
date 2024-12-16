@@ -8,10 +8,25 @@ import Question from './sections/question'
 import Result from './sections/result'
 import { questions, answers } from './data'
 
+import { createSystem, defaultConfig, ChakraProvider } from "@chakra-ui/react"
+
+const system = createSystem(defaultConfig, {
+  theme: {
+    tokens: {
+      fonts: {
+        heading: { value: "var(--font-open-sans)" },
+        body: { value: "var(--font-open-sans)" },
+      },
+    },
+  },
+})
+
 export default function Home() {
+  
 
   const [index, setIndex] = useState(0);
   const [gender, setGender] = useState('neither');
+  const [lastValue, setLastValue] = useState('');
 
   let initialCounters = [
     {
@@ -35,6 +50,9 @@ export default function Home() {
   function genderChoice(val) {
     setGender(val);
   }
+  function lastChoice(val) {
+    setLastValue(val);
+  }
   function personaNextClick(val) {
     
     const personaCounter = persona.map(p => ({
@@ -50,10 +68,28 @@ export default function Home() {
     setIndex(0);
     setGender("neither")
     setPersona(initialCounters)
+    setLastValue('')
   }
 
+  const getHighestValue = (counters) => {
+    let highestValue = -Infinity;
+    let highestKey = '';
+  
+    for (let key in counters[0]) {
+      if (
+        counters[0][key] > highestValue || 
+        (counters[0][key] === highestValue && key == lastValue)
+      ) {
+        highestValue = counters[0][key];
+        highestKey = key;
+      }
+    }
+  
+    return { key: highestKey, value: highestValue };
+  };
+
   return (
-    <>
+    <ChakraProvider value={system}>
       <Intro
         sectionNumber={index}
         clickEvent={handleNextClick}
@@ -78,6 +114,7 @@ export default function Home() {
             sectionNumber={index}
             previousClickEvent={previousNextClick}
             clickEvent={personaNextClick}
+            lastEvent={lastChoice}
             questionNo = {(question.no / questions.length) * 100}
             questionLength = {questions.length}
             questionNumber = {question.no}
@@ -100,10 +137,12 @@ export default function Home() {
             advice={answer.advice}
             sectionLength={questions.length + 2}
             resetButton={reset}
+            result={getHighestValue(persona)}
+            value={answer.value}
           />
         )
       }
-    </>
+    </ChakraProvider>
   );
 }
 

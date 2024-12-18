@@ -29,14 +29,34 @@ export default function Question(props) {
 
     const [questionPersona, setQuestionPersona] = useState({
         disabled: true,
-        value: ''
+        value: '',
+        selectedValue: ''
     });
 
     function questionSelect(val) {
-        setQuestionPersona({
-            disabled: false,
-            value: val.target.value
-        });
+        const newValue = val.target.value;
+      
+        setQuestionPersona(prevState => ({
+          ...prevState,
+          disabled: false,
+          value: newValue
+        }));
+      }
+
+    function questionComplete() {
+        setQuestionPersona(prevState => ({
+          ...prevState,
+          disabled: true,
+          selectedValue: prevState.value
+        }));
+    }
+
+    function questionIncomplete() {
+        setQuestionPersona(prevState => ({
+          ...prevState,
+          disabled: true,
+          value: ''
+        }));
     }
 
     return (
@@ -96,7 +116,7 @@ export default function Question(props) {
                             </Flex>
                             <Heading
                                 as="h2"
-                                maxW="75%"
+                                maxW="65%"
                                 lineHeight={1.2}
                                 fontSize={{ base: "xl", md: "4xl" }}
                                 color="#0E1661"
@@ -129,7 +149,7 @@ export default function Question(props) {
                                                     border="2px solid #F3F7FF"
                                                     bg="#F3F7FF"
                                                     borderRadius="8px"
-                                                    color="black"
+                                                    color="#0E1661"
                                                     fontSize={{ base: "xs", md: "sm" }}
                                                     _hover={{ 
                                                         borderColor: '#0F62F4'
@@ -152,7 +172,7 @@ export default function Question(props) {
                                                 border="2px solid #F3F7FF"
                                                 bg="#F3F7FF"
                                                 borderRadius="8px"
-                                                color="black"
+                                                color="#0E1661"
                                                 _hover={{ 
                                                     borderColor: '#0F62F4'
                                                 }}
@@ -179,7 +199,10 @@ export default function Question(props) {
                                         color="#0E1661"
                                         border="2px solid #0F62F4"
                                         alignSelf="flex-end"
-                                        onClick={props.previousClickEvent}
+                                        onClick={() => {
+                                            questionIncomplete();
+                                            props.previousClickEvent(questionPersona.selectedValue);
+                                        }}
                                     >
                                         Previous
                                     </Button>
@@ -197,7 +220,8 @@ export default function Question(props) {
                                             opacity: 1
                                         }}
                                         onClick={() => {
-                                            props.clickEvent(questionPersona.value);
+                                            questionComplete();
+                                            props.clickEvent(questionPersona.value, questionPersona.selectedValue);
                                         }}
                                     >
                                         Next Question
@@ -217,7 +241,8 @@ export default function Question(props) {
                                         opacity: 1
                                     }}
                                     onClick={() => {
-                                        props.clickEvent(questionPersona.value);
+                                        questionComplete();
+                                        props.clickEvent(questionPersona.value, questionPersona.selectedValue);
                                     }}
                                 >
                                     Next Question

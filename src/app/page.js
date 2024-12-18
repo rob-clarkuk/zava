@@ -27,6 +27,7 @@ export default function Home() {
   const [index, setIndex] = useState(0);
   const [gender, setGender] = useState('neither');
   const [lastValue, setLastValue] = useState('');
+  const [genderButton, setGenderButton] = useState(true);
 
   let initialCounters = [
     {
@@ -47,8 +48,9 @@ export default function Home() {
   function previousNextClick() {
     setIndex(index - 1);
   }
-  function genderChoice(val) {
+  function genderChoice(val, e) {
     setGender(val);
+    setGenderButton(e)
   }
   function lastChoice(val) {
     setLastValue(val);
@@ -64,11 +66,28 @@ export default function Home() {
     setIndex(index + 1);
   }
 
+  function personaPreviousClick(selVal) {
+    if (index === 3){
+      setPersona(initialCounters);
+    }
+    else if (selVal) {
+      const personaCounter = persona.map(p => ({
+        ...p,
+        [selVal]: (p[selVal] || 0) - 1,
+      }));
+  
+      setPersona(personaCounter);
+    }
+  
+    setIndex(index - 1);
+  }
+
   function reset() {
     setIndex(0);
     setGender("neither")
     setPersona(initialCounters)
     setLastValue('')
+    setGenderButton(true)
   }
 
   const getHighestValue = (counters) => {
@@ -102,6 +121,7 @@ export default function Home() {
         previousClickEvent={previousNextClick}
         clickEvent={handleNextClick}
         genderChoice={genderChoice}
+        buttonState={genderButton}
         subTitle="About you"
         title="Pre-Screen questions"
         question="What is your sex?"
@@ -112,7 +132,7 @@ export default function Home() {
           <Question
             key={question.no}
             sectionNumber={index}
-            previousClickEvent={previousNextClick}
+            previousClickEvent={personaPreviousClick}
             clickEvent={personaNextClick}
             lastEvent={lastChoice}
             questionNo = {(question.no / questions.length) * 100}
@@ -135,6 +155,7 @@ export default function Home() {
             image={answer.image}
             content={answer.content}
             advice={answer.advice}
+            cravings={answer.cravings}
             sectionLength={questions.length + 2}
             resetButton={reset}
             result={getHighestValue(persona)}

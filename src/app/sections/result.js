@@ -40,6 +40,7 @@ export default function Intro(props) {
                     h={{ base: "100vh", md: "600px" }}
                     borderRadius={10}
                     overflow="hidden"
+                    key={props.key}
                 >
                     <Box 
                         w={{ base: "390px", md: "800px" }}
@@ -128,7 +129,7 @@ export default function Intro(props) {
                                                 w={{base:"50px", md:"auto"}}
                                             />
                                             <Text
-                                                color={{base: "white", md:"black"}}
+                                                color={{base: "white", md:"#0E1661"}}
                                             >
                                                 Advice & Help
                                             </Text>
@@ -259,12 +260,12 @@ export default function Intro(props) {
                         top={0}
                         py={16}
                         px={{ base: 6, md: 12 }}
-                        color="black"
+                        color="#0E1661"
                         transform={open ? "translateY(0)" : "translateY(100%)"}
                         transition="transform 0.3s"
                     >
                         <Button
-                            color="black"
+                            color="#0E1661"
                             w="auto"
                             h="auto"
                             p={2}
@@ -303,7 +304,7 @@ export default function Intro(props) {
                         transition="transform 0.3s"
                     >
                         <Button
-                            color="black"
+                            color="#0E1661"
                             w="auto"
                             h="auto"
                             p={2}
@@ -342,6 +343,140 @@ export default function Intro(props) {
                                 .map(c => 
                                     <Text key={c.no} pb={4}>{c.paragraph}</Text>
                             )}
+                        </Box>
+                        <Box>
+                            <Text
+                                fontWeight="700"
+                                color="#0E1661"
+                            >
+                                Your Go-To Cravings?
+                            </Text>
+                            <Text
+                                color="#0E1661"
+                            >
+                                Click on the foods below to see healthy alternatives to popular cravings
+                            </Text>
+                            <Flex
+                                gap={12}
+                                pt={4}
+                            >
+                            {props.cravings
+                                .map(c => {
+                                    const [openLightBox, setOpenLightBox] = useState(false)
+
+                                    function lightBox() {
+                                        setOpenLightBox(!openLightBox)
+                                    }
+                                    
+                                    return(
+                                        <>
+                                        <Flex
+                                            flexDirection="column"
+                                            alignItems="center"
+                                            gap={2}
+                                            key={c.no}
+                                        >
+                                            <Box
+                                                position="relative"
+                                                cursor="pointer"
+                                                _before={
+                                                    {
+                                                        content: "''",
+                                                        borderRadius:"50%",
+                                                        position:"absolute",
+                                                        w:"calc(100% + 10px)",
+                                                        h:"calc(100% + 10px)",
+                                                        border:"2px solid #0F62F4",
+                                                        top:"50%",
+                                                        left:"50%",
+                                                        transform:"translate(-50%, -50%)",
+                                                        transition: "border .3s"
+                                                    }
+                                                }
+                                                _hover={
+                                                    {
+                                                        _before:{
+                                                            border:"4px solid #0F62F4"
+                                                        }
+                                                    }
+                                                }
+                                                onClick={lightBox}
+                                            >
+                                                <Image 
+                                                    src={c.icon} 
+                                                    alt={c.title} />
+                                            </Box>
+                                            <Text
+                                                fontSize='sm'
+                                                color="#0E1661"
+                                            >
+                                                {c.title}
+                                            </Text>
+                                        </Flex>
+                                        <Box
+                                            bgColor="rgba(14, 22, 97, 0.5)"
+                                            position="absolute"
+                                            top={0}
+                                            left={0}
+                                            right={0}
+                                            bottom={0}
+                                            zIndex={10}
+                                            visibility={openLightBox ? "visible" : "hidden"}
+                                            opacity={openLightBox ? "1" : "0"}
+                                        >
+                                            <Box
+                                                bgColor="white"
+                                                position="absolute"
+                                                borderRadius={8}
+                                                top="50%"
+                                                left="50%"
+                                                transform="translate(-50%, -50%)"
+                                                w={{ base: "90vw", md:"480px"}}
+                                                overflow="hidden"
+                                            >
+                                                <Box>
+                                                    <Image
+                                                        src={c.image}
+                                                        alt={c.lightboxTitle}
+                                                        w="100%"
+                                                    />
+
+                                                    <Button
+                                                        color="#ADB5BD"
+                                                        w="auto"
+                                                        h="auto"
+                                                        p={0}
+                                                        fontSize="64px"
+                                                        position="absolute"
+                                                        top={-1}
+                                                        right={2}
+                                                        onClick={lightBox}
+                                                        bgColor="transparent"
+                                                    >
+                                                        <FontAwesomeIcon icon={fal.faXmark} transform="grow-6"/>
+                                                    </Button>
+                                                    <Box
+                                                        p={6}
+                                                    >
+                                                        <Text
+                                                            fontWeight="700"
+                                                            color="#0E1661"
+                                                            pb={4}>
+                                                                {c.lightboxTitle}
+                                                        </Text>
+                                                        <Text
+                                                            color="#0E1661">
+                                                                {c.description}
+                                                        </Text>
+                                                    </Box>
+                                                </Box>
+                                            </Box>
+
+                                        </Box>
+                                        </>
+                                    )}
+                                )}
+                            </Flex>
                         </Box>
                     </Box>
                 </Box>

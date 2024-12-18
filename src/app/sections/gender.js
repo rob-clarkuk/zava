@@ -17,15 +17,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fal } from '@awesome.me/kit-b9fe25a16e/icons'
 
-import { useState } from 'react'
-
 export default function Gender(props) {
-
-    const [button, setButton] = useState(true);
-
-    function buttonDisable() {
-        setButton(false)
-    }
     return (
         <>
             <Show when={props.sectionNumber == 1}>
@@ -81,12 +73,11 @@ export default function Gender(props) {
                             size={{ base: "sm", md: "md" }}
                             colorPalette="blue"
                             onChange={(value) => {
-                                props.genderChoice(value.target.value);
-                                buttonDisable()
+                                props.genderChoice(value.target.value, !props.buttonState);
                             }}
                         >
                             <RadioCardLabel
-                                color="black"
+                                color="#0E1661"
                                 fontSize="lg"
                                 fontWeight="700"
                                 pb={5}
@@ -103,7 +94,7 @@ export default function Gender(props) {
                                 border="2px solid #F3F7FF"
                                 bg="#F3F7FF"
                                 borderRadius="8px"
-                                color="black"
+                                color="#0E1661"
                                 _hover={{ 
                                 borderColor: '#0F62F4'
                                 }}
@@ -118,7 +109,7 @@ export default function Gender(props) {
                                 border="2px solid #F3F7FF"
                                 bg="#F3F7FF"
                                 borderRadius="8px"
-                                color="black"
+                                color="#0E1661"
                                 _hover={{ 
                                 borderColor: '#0F62F4'
                                 }}
@@ -133,7 +124,7 @@ export default function Gender(props) {
                                 border="2px solid #F3F7FF"
                                 bg="#F3F7FF"
                                 borderRadius="8px"
-                                color="black"
+                                color="#0E1661"
                                 _hover={{ 
                                     borderColor: '#0F62F4'
                                 }}
@@ -151,7 +142,7 @@ export default function Gender(props) {
                             borderRadius="8px"
                             color="white"
                             alignSelf="flex-end"
-                            disabled={button}
+                            disabled={props.buttonState}
                             _disabled={{ 
                                 bgColor: '#B3B1B1',
                                 color: '#777676',

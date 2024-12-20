@@ -8,7 +8,7 @@ const openSans = Open_Sans({
 
 export const metadata = {
   title: "Zava Cravings Calculator",
-  description: "Ready to curb your cravings? Answer 15 questions about your eating habits and general lifestyle to get your Cravings Persona and some advice for managing your eating.",
+  description: "Ready to curb your cravings? Answer 10 questions about your eating habits and general lifestyle to get your Cravings Persona and some advice for managing your eating.",
 };
 
 export default function RootLayout({ children }) {

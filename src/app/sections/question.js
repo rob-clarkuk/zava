@@ -65,9 +65,10 @@ export default function Question(props) {
                 <Box 
                     w={{ base: "390px", md: "800px" }}
                     maxW="100vw"
-                    h={{ base: "100vh", md: "600px" }}
+                    h={{ base: "736px", md: "600px" }}
                     py={6}
                     px={{ base: 6, md: 12 }}
+                    mx="auto"
                     bgColor="#fff"
                     borderRadius={10}
                     position='relative'
@@ -103,7 +104,13 @@ export default function Question(props) {
                                     bg= '#E9F1FE'
                                     border='1px solid white'
                                     px={0}
+                                    color="#0E1661"
                                     onClick={props.previousClickEvent}
+                                    _hover={
+                                        {
+                                            border:'1px solid #0F62F4'
+                                        }
+                                    }
                                 >
                                     <FontAwesomeIcon icon={fal.faChevronLeft}/>
                                 </Button>
@@ -116,7 +123,7 @@ export default function Question(props) {
                             </Flex>
                             <Heading
                                 as="h2"
-                                maxW="65%"
+                                maxW={{ base: "80%", md:"70%"}}
                                 lineHeight={1.2}
                                 fontSize={{ base: "xl", md: "4xl" }}
                                 color="#0E1661"
@@ -150,7 +157,7 @@ export default function Question(props) {
                                                     bg="#F3F7FF"
                                                     borderRadius="8px"
                                                     color="#0E1661"
-                                                    fontSize={{ base: "xs", md: "sm" }}
+                                                    fontSize="sm"
                                                     _hover={{ 
                                                         borderColor: '#0F62F4'
                                                     }}
@@ -199,6 +206,11 @@ export default function Question(props) {
                                         color="#0E1661"
                                         border="2px solid #0F62F4"
                                         alignSelf="flex-end"
+                                        _hover={{
+                                            bgColor:'#3232E1',
+                                            borderColor:'#3232E1',
+                                            color:'white'
+                                        }}
                                         onClick={() => {
                                             questionIncomplete();
                                             props.previousClickEvent(questionPersona.selectedValue);
@@ -218,6 +230,9 @@ export default function Question(props) {
                                             bgColor: '#B3B1B1',
                                             color: '#777676',
                                             opacity: 1
+                                        }}
+                                        _hover={{
+                                            bgColor:'#3232E1'
                                         }}
                                         onClick={() => {
                                             questionComplete();
@@ -239,6 +254,9 @@ export default function Question(props) {
                                         bgColor: '#B3B1B1',
                                         color: '#777676',
                                         opacity: 1
+                                    }}
+                                    _hover={{
+                                        bgColor:'#3232E1'
                                     }}
                                     onClick={() => {
                                         questionComplete();

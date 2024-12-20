@@ -24,9 +24,10 @@ export default function Gender(props) {
                 <Box 
                     w={{ base: "390px", md: "800px" }}
                     maxW="100vw"
-                    h={{ base: "100vh", md: "600px" }}
+                    h={{ base: "736px", md: "600px" }}
                     py={12}
                     px={{ base: 6, md: 12 }}
+                    mx="auto"
                     bgColor="#fff"
                     borderRadius={10}
                     position='relative'
@@ -47,7 +48,13 @@ export default function Gender(props) {
                                 bg= '#E9F1FE'
                                 border='1px solid white'
                                 px={0}
+                                color="#0E1661"
                                 onClick={props.previousClickEvent}
+                                _hover={
+                                    {
+                                        border:'1px solid #0F62F4'
+                                    }
+                                }
                             >
                                 <FontAwesomeIcon icon={fal.faChevronLeft}/>
                             </Button>
@@ -73,7 +80,7 @@ export default function Gender(props) {
                             size={{ base: "sm", md: "md" }}
                             colorPalette="blue"
                             onChange={(value) => {
-                                props.genderChoice(value.target.value, !props.buttonState);
+                                props.genderChoice(value.target.value, false);
                             }}
                         >
                             <RadioCardLabel
@@ -140,13 +147,16 @@ export default function Gender(props) {
                             h="40px"
                             bg="#0F62F4"
                             borderRadius="8px"
-                            color="white"
+                            color="#fff"
                             alignSelf="flex-end"
                             disabled={props.buttonState}
                             _disabled={{ 
                                 bgColor: '#B3B1B1',
                                 color: '#777676',
                                 opacity: 1
+                            }}
+                            _hover={{
+                                bgColor:'#3232E1'
                             }}
                             onClick={props.clickEvent}
                             >

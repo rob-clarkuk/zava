@@ -113,7 +113,7 @@ export default function Home() {
         sectionNumber={index}
         clickEvent={handleNextClick}
         title="The Craving Calculator"
-        intro="Ready to curb your cravings?  Answer 15 questions about your eating habits and general lifestyle to get your Cravings Persona and some advice  for managing your eating."
+        intro="Ready to curb your cravings?  Answer 10 questions about your eating habits and general lifestyle to get your Cravings Persona and some advice  for managing your eating."
         buttonTitle="Start"
       />
       <Gender
@@ -123,7 +123,7 @@ export default function Home() {
         genderChoice={genderChoice}
         buttonState={genderButton}
         subTitle="About you"
-        title="Pre-Screen questions"
+        title="Pre-Screening questions"
         question="What is your sex?"
         buttonTitle="Begin Quiz"
       />
@@ -160,6 +160,8 @@ export default function Home() {
             resetButton={reset}
             result={getHighestValue(persona)}
             value={answer.value}
+            socialUrl = 'https://www.zavamed.com/uk/what-causes-food-cravings.html'
+            socialDescription = {'My craving persona is the ' + answer.title + '. Find out yours!'}
           />
         )
       }

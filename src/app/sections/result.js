@@ -22,6 +22,10 @@ export default function Intro(props) {
     const [open, setOpen] = useState(false)
     const [openAdvice, setOpenAdvice] = useState(false)
 
+    const [overFacebook, setOverFacebook] = useState(false);
+    const [overWhatsApp, setOverWhatsApp] = useState(false);
+    const [overTwitter, setOverTwitter] = useState(false);
+
     function openDescription() {
         setOpen(!open);
     }
@@ -37,15 +41,16 @@ export default function Intro(props) {
                     position="relative"
                     w={{ base: "390px", md: "800px" }}
                     maxW="100vw"
-                    h={{ base: "100vh", md: "600px" }}
+                    h={{ base: "736px", md: "600px" }}
                     borderRadius={10}
+                    mx="auto"
                     overflow="hidden"
                     key={props.key}
                 >
                     <Box 
                         w={{ base: "390px", md: "800px" }}
                         maxW="100vw"
-                        h={{ base: "100vh", md: "600px" }}
+                        h={{ base: "736px", md: "600px" }}
                         py={16}
                         px={{ base: 6, md: 12 }}
                         bgColor="#0E1661"
@@ -75,14 +80,16 @@ export default function Intro(props) {
                             >
                                 <Text 
                                 size="lg"
-                                fontWeight="700">
+                                fontWeight="700"
+                                color="white">
                                     You are the
                                 </Text>
                                 <Heading 
                                 as="h3"
                                 size={{ base: "3xl", md: "5xl" }}
                                 pb={5}
-                                fontWeight="700">
+                                fontWeight="700"
+                                color="white">
                                     {props.title}
                                 </Heading>
                             </GridItem>
@@ -115,6 +122,10 @@ export default function Intro(props) {
                                             justifyContent='center'
                                             gap={3}
                                             position="relative"
+                                            transition="background-color .3s"
+                                            _hover={{
+                                                bgColor:"#F3F7FF"
+                                            }}
                                         >
                                             <Box
                                                 position="absolute"
@@ -125,7 +136,7 @@ export default function Intro(props) {
                                                 <FontAwesomeIcon icon={fas.faUpRightAndDownLeftFromCenter} />
                                             </Box>
                                             <Image 
-                                                src="./information.svg"
+                                                src="https://fractl.zavamed.com/campaign-zavacalculator/assets/images/information.svg"
                                                 w={{base:"50px", md:"auto"}}
                                             />
                                             <Text
@@ -154,7 +165,11 @@ export default function Intro(props) {
                                                 color="white"
                                             >
                                                 <Image 
-                                                    src="./repeat.svg"
+                                                    src="https://fractl.zavamed.com/campaign-zavacalculator/assets/images/repeat.svg"
+                                                    transition='transform .3s'
+                                                    _hover={{
+                                                        transform:'rotate(360deg)'
+                                                    }}
                                                 />
                                                 <Text
                                                     fontSize="xs"
@@ -169,22 +184,36 @@ export default function Intro(props) {
                                             gap={3}
                                             w="max-content"
                                         >
-                                            <span className="fa-layers fa-fw fa-md">
-                                                <FontAwesomeIcon icon={fas.faCircle} transform="grow-6" color="#0E9CA5"/>
-                                                <FontAwesomeIcon icon={fab.faWhatsapp} transform="shrink-1" inverse />
-                                            </span>
-                                            <span className="fa-layers fa-fw fa-md">
-                                                <FontAwesomeIcon icon={fas.faCircle} transform="grow-6" color="#0E9CA5"/>
-                                                <FontAwesomeIcon icon={fab.faFacebookF} transform="shrink-1" inverse />
-                                            </span>
-                                            <span className="fa-layers fa-fw fa-md">
-                                                <FontAwesomeIcon icon={fas.faCircle} transform="grow-6" color="#0E9CA5"/>
-                                                <FontAwesomeIcon icon={fab.faInstagram} transform="shrink-1" inverse />
-                                            </span>
-                                            <span className="fa-layers fa-fw fa-md">
-                                                <FontAwesomeIcon icon={fas.faCircle} transform="grow-6" color="#0E9CA5"/>
-                                                <FontAwesomeIcon icon={fab.faXTwitter} transform="shrink-1" inverse />
-                                            </span>
+                                            <a 
+                                                href={"https://wa.me/?text=" + props.socialDescription + "%20" + props.socialUrl}
+                                                target="_blank"
+                                                className="fa-layers fa-fw fa-md"
+                                                onMouseOver={() => setOverWhatsApp(true)}
+                                                onMouseLeave={() => setOverWhatsApp(false)}
+                                            >
+                                                <FontAwesomeIcon icon={fas.faCircle} transform="grow-6" style={overWhatsApp ? { color: "#CFEBED" } : { color: "#0E9CA5"}}/>
+                                                <FontAwesomeIcon icon={fab.faWhatsapp} transform="shrink-1" style={overWhatsApp ? { color: "#0E9CA5" } : { color: "#fff"}} />
+                                            </a>
+                                            <a 
+                                                href={"https://www.facebook.com/sharer/sharer.php?u=" + props.socialUrl}
+                                                target="_blank"
+                                                className="fa-layers fa-fw fa-md"
+                                                onMouseOver={() => setOverFacebook(true)}
+                                                onMouseLeave={() => setOverFacebook(false)}
+                                            >
+                                                <FontAwesomeIcon icon={fas.faCircle} transform="grow-6" style={overFacebook ? { color: "#CFEBED" } : { color: "#0E9CA5"}}/>
+                                                <FontAwesomeIcon icon={fab.faFacebookF} transform="shrink-1" style={overFacebook ? { color: "#0E9CA5" } : { color: "#fff"}} />
+                                            </a>
+                                            <a 
+                                                href={"https://twitter.com/intent/tweet?url=" + props.socialUrl + '&text=' + props.socialDescription}
+                                                target="_blank"
+                                                className="fa-layers fa-fw fa-md"
+                                                onMouseOver={() => setOverTwitter(true)}
+                                                onMouseLeave={() => setOverTwitter(false)}
+                                            >
+                                                <FontAwesomeIcon icon={fas.faCircle} transform="grow-6" style={overTwitter ? { color: "#CFEBED" } : { color: "#0E9CA5"}}/>
+                                                <FontAwesomeIcon icon={fab.faXTwitter} transform="shrink-1" style={overTwitter ? { color: "#0E9CA5" } : { color: "#fff"}} />
+                                            </a>
                                         </Flex>
                                     </Flex>
                                 </Flex>
@@ -195,6 +224,7 @@ export default function Intro(props) {
                             >
                                 <Text
                                     fontWeight="bold"
+                                    color="white"
                                 >
                                     Top Causes
                                 </Text>
@@ -203,7 +233,7 @@ export default function Intro(props) {
                                 >
                                     {props.causes
                                         .map(cause => 
-                                            <List.Item key={cause.no}>{cause.title}</List.Item>
+                                            <List.Item key={cause.no} color="white">{cause.title}</List.Item>
                                     )}
                                 </List.Root>
                             </GridItem>
@@ -231,23 +261,28 @@ export default function Intro(props) {
                                 justifyContent='flex-end'
                                 pr={2}
                                 gap={3}
+                                transition="background-color .3s"
+                                _hover={{
+                                    bgColor:"#F3F7FF"
+                                }}
                             >
                                 <Box
                                     w="auto"
                                     position="absolute"
-                                    top={-2}
+                                    top="-3px"
                                     left="50%"
                                     transform="translateX(-50%)"
                                 >
-                                    <FontAwesomeIcon icon={fas.faChevronUp} inverse transform="grow-6"/>
+                                    <FontAwesomeIcon icon={fas.faChevronUp} inverse transform="grow-8"/>
                                 </Box>
                                 <Text
                                     fontSize="md"
+                                    color="#0E1661"
                                 >
                                     Reveal more
                                 </Text>
                                 <Image 
-                                    src="./hamburger.svg"
+                                    src="https://fractl.zavamed.com/campaign-zavacalculator/assets/images/hamburger.svg"
                                 />
                             </Flex>
                         </Button>
@@ -269,11 +304,18 @@ export default function Intro(props) {
                             w="auto"
                             h="auto"
                             p={2}
+                            height="64px"
+                            width="64px"
                             fontSize="64px"
                             position="absolute"
-                            top={0}
+                            top={5}
                             right={5}
                             onClick={openDescription}
+                            bgColor="white"
+                            borderRadius="50%"
+                            _hover={{
+                                bgColor:"#F3F7FF"
+                            }}
                         >
                             <FontAwesomeIcon icon={fal.faXmark} transform="grow-6"/>
                         </Button>
@@ -308,17 +350,24 @@ export default function Intro(props) {
                             w="auto"
                             h="auto"
                             p={2}
+                            height="64px"
+                            width="64px"
                             fontSize="64px"
                             position="absolute"
-                            top={0}
+                            top={5}
                             right={5}
                             onClick={openAdviceSwitch}
+                            bgColor="white"
+                            borderRadius="50%"
+                            _hover={{
+                                bgColor:"#F3F7FF"
+                            }}
                         >
                             <FontAwesomeIcon icon={fal.faXmark} transform="grow-6"/>
                         </Button>
                         <Flex gap={4}>
                             <Image 
-                                src="./info-alt.svg"
+                                src="https://fractl.zavamed.com/campaign-zavacalculator/assets/images/info-alt.svg"
                                 w={{base:"50px", md:"80px"}}
                                 fit="contain"
                                 h={{base:"50px", md:"80px"}}
@@ -341,15 +390,20 @@ export default function Intro(props) {
                         >
                             {props.advice
                                 .map(c => 
-                                    <Text key={c.no} pb={4}>{c.paragraph}</Text>
+                                    <Text
+                                        key={c.no}
+                                        pb={4}
+                                        color="#0E1661">
+                                        {c.paragraph}
+                                    </Text>
                             )}
                         </Box>
-                        <Box>
+                        <Box pt={4}>
                             <Text
                                 fontWeight="700"
                                 color="#0E1661"
                             >
-                                Your Go-To Cravings?
+                                Your Go-To Cravings
                             </Text>
                             <Text
                                 color="#0E1661"

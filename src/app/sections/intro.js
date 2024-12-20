@@ -18,15 +18,16 @@ export default function Intro(props) {
                 <Box 
                     w={{ base: "390px", md: "800px" }}
                     maxW="100vw"
-                    h={{ base: "665px", md: "600px" }}
+                    h={{ base: "736px", md: "600px" }}
                     py={16}
                     px={{ base: 6, md: 12 }}
+                    mx="auto"
                     bgColor="#0E1661"
                     borderRadius={10}
                     display="flex"
                     alignItems="flex-end"
                     position='relative'
-                    bgImage='url(./dripping2.png)'
+                    bgImage='url(https://fractl.zavamed.com/campaign-zavacalculator/assets/images/dripping2.png)'
                     bgRepeat='no-repeat'
                     bgPos='top right'
                     bgSize={{ base: "80%", md: "60%" }}
@@ -34,7 +35,7 @@ export default function Intro(props) {
                     _before={
                         {
                         content: '""',
-                        bgImage:'url(./bg.svg)',
+                        bgImage:'url(https://fractl.zavamed.com/campaign-zavacalculator/assets/images/bg.svg)',
                         bgRepeat:'no-repeat',
                         bgPos:'center',
                         bgSize:'auto',
@@ -49,7 +50,7 @@ export default function Intro(props) {
                 >
                     <Image
                         display={{ base: "block", md: "none" }}
-                        src="./ice-cream4-mob.png"
+                        src="https://fractl.zavamed.com/campaign-zavacalculator/assets/images/ice-cream4-mob.png"
                         position="absolute"
                         right={{ base: '-20px', md: 0 }}
                         top={0}
@@ -57,7 +58,7 @@ export default function Intro(props) {
                     />
                     <Image
                         display={{ base: "none", md: "block" }}
-                        src="./ice-cream4.png"
+                        src="https://fractl.zavamed.com/campaign-zavacalculator/assets/images/ice-cream4.png"
                         position="absolute"
                         right={{ base: '-20px', md: 0 }}
                         top={0}
@@ -70,11 +71,13 @@ export default function Intro(props) {
                         as="h1"
                         size={{ base: "3xl", md: "5xl" }}
                         pb={5}
-                        fontWeight="700">
+                        fontWeight="700"
+                        color="white">
                         {props.title}
                         </Heading>
                         <Text
                         pb={5}
+                        color="white"
                         >
                         {props.intro}
                         </Text>
@@ -97,6 +100,11 @@ export default function Intro(props) {
                             justifyContent='flex-end'
                             pr={3}
                             gap={3}
+                            transition="background-color .3s"
+                            color="#0E1661"
+                            _hover={{
+                                bgColor:"#F3F7FF"
+                            }}
                         >
                             {props.buttonTitle}
                             <span className="fa-layers fa-fw fa-xl">

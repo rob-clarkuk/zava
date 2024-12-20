@@ -34,7 +34,7 @@ export const questions = [{
         },
         {
             no: 6,
-            question: "During certain times in my cycle of pregnancy",
+            question: "During certain times in my cycle or pregnancy",
             femaleOnly: true,
             value: 'hs'
         }
@@ -422,7 +422,7 @@ export const questions = [{
 export const answers = [{
     no: 1,
     title: 'Emotional Eater',
-    image: './emotional-eater.png',
+    image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/emotional-eater.png',
     value: 'ee',
     causes: [
         {
@@ -458,16 +458,16 @@ export const answers = [{
         {
             no: 1,
             title: 'Ice cream',
-            icon: './ice-cream.png',
-            image: './frozen-fruit.png',
+            icon: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/ice-cream.png',
+            image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/frozen-fruit.png',
             lightboxTitle: 'Blended frozen fruits',
             description: "These mimic the creamy texture of ice cream but are lower in sugar and fat. Place a soft fruit such as a mango or banana in the freezer and then once it's frozen, take it out and place it in a blender or press with a fork. Add a touch of cocoa powder or peanut butter for an extra indulgent treat."
         },
         {
             no: 2,
             title: 'Chocolate',
-            icon: './chocolate.png',
-            image: './dark-chocolate.png',
+            icon: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/chocolate.png',
+            image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/dark-chocolate.png',
             lightboxTitle: 'Dark chocolate (70% cocoa or higher)',
             description: "Compared to milk chocolate, dark chocolate typically has less sugar, making it a better choice for managing your blood sugar levels. It's also rich in antioxidants and flavonoids, which have been shown to improve heart health. You can pair dark chocolate with a handful of nuts or fresh berries for added flavour."
         }
@@ -476,7 +476,7 @@ export const answers = [{
 {
     no: 2,
     title: 'Stress Snacker',
-    image: './stress-snacker.png',
+    image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/stress-snacker.png',
     value: 'ss',
     causes: [
         {
@@ -508,16 +508,16 @@ export const answers = [{
         {
             no: 1,
             title: 'Crisps',
-            icon: './crisps.png',
-            image: './baked-veg.png',
+            icon: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/crisps.png',
+            image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/baked-veg.png',
             lightboxTitle: 'Baked vegetable or seaweed crisps',
             description: "These offer the same crunch and saltiness - perfect for those who love the texture of crisps - but are lower in fat and higher in nutrients."
         },
         {
             no: 2,
             title: 'Sweets',
-            icon: './sweets.png',
-            image: './fresh-fruit.png',
+            icon: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/sweets.png',
+            image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/fresh-fruit.png',
             lightboxTitle: 'Fresh fruit or dried fruit',
             description: "These options provide natural sweetness with added fibre and vitamins, perfect for avoiding the empty calories of sweets. Dried fruits are a great alternative if you're a fan of gummies as they tend to have a firmer, chewier texture."
         }
@@ -525,8 +525,8 @@ export const answers = [{
 },
 {
     no: 3,
-    title: 'The Fuel Finder',
-    image: './fuel-finder.png',
+    title: 'Fuel Finder',
+    image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/fuel-finder.png',
     value: 'ff',
     causes: [
         {
@@ -562,16 +562,16 @@ export const answers = [{
         {
             no: 1,
             title: 'Takeaway Foods',
-            icon: './takeaway.png',
-            image: './fakeaways.png',
+            icon: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/takeaway.png',
+            image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/fakeaways.png',
             lightboxTitle: 'Fakeaways',
             description: "Homemade versions of your favourite takeaways, like baked sweet potato wedges instead of chips or whole-grain wraps with grilled chicken instead of fried food, are a cheaper, healthier option and will allow you to monitor how many calories you're eating more closely."
         },
         {
             no: 2,
             title: 'Cakes and Pastries',
-            icon: './cakes.png',
-            image: './yoghurt.png',
+            icon: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/cakes.png',
+            image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/yoghurt.png',
             lightboxTitle: 'Greek yoghurt parfait',
             description: "Layer Greek yoghurt with fresh berries, granola and a drizzle of honey for a creamy and satisfying dessert. Rich in protein and lower in sugar than most pastries, these healthful treats are a great alternative to baked snacks."
         }
@@ -580,7 +580,7 @@ export const answers = [{
 {
     no: 4,
     title: 'Nourishment Seeker',
-    image: './nourishment-seeker.png',
+    image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/nourishment-seeker.png',
     value: 'ns',
     causes: [
         {
@@ -616,16 +616,16 @@ export const answers = [{
         {
             no: 1,
             title: 'Popcorn',
-            icon: './popcorn.png',
-            image: './chickpeas.png',
+            icon: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/popcorn.png',
+            image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/chickpeas.png',
             lightboxTitle: 'Roasted chickpeas or salted edamame',
             description: "High in protein, fibre and crunch, roasted chickpeas seasoned with spices are a great alternative to popcorn. Lightly salted edamame pods are a good option, too, and are rich in plant-based protein and vitamins."
         },
         {
             no: 2,
             title: 'Cheese',
-            icon: './cheese.png',
-            image: './cottage-cheese.png',
+            icon: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/cheese.png',
+            image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/cottage-cheese.png',
             lightboxTitle: 'Cottage cheese or reduced-fat cheese with fresh fruit',
             description: "These options retain the texture and flavour of cheese while cutting down on fat and calories. Pair these cheese options with grapes or apple slices to reach your 5-a-day. You can also add nutritional yeast to your favourite pasta dishes instead of cheese to give them a cheesy kick."
         }
@@ -634,7 +634,7 @@ export const answers = [{
 {
     no: 5,
     title: 'Habitual Grazer',
-    image: './habitual-grazer.png',
+    image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/habitual-grazer.png',
     value: 'hg',
     causes: [
         {
@@ -670,16 +670,16 @@ export const answers = [{
         {
             no: 1,
             title: 'Bread',
-            icon: './bread.png',
-            image: './rye-bread.png',
+            icon: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/bread.png',
+            image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/rye-bread.png',
             lightboxTitle: 'Whole-grain or rye bread',
             description: "Whole-grain, sourdough and rye bread tend to be higher in fibre and more nutritious than your everyday white bread. But be mindful of the spreads you use, as traditional options like butter, margarine and jam are often high in calories."
         },
         {
             no: 2,
             title: 'Biscuits',
-            icon: './biscuits.png',
-            image: './energy-balls.png',
+            icon: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/biscuits.png',
+            image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/energy-balls.png',
             lightboxTitle: 'Energy Balls',
             description: "These novel treats blend ingredients like oats, dates, peanut butter and cocoa powder for a no-bake snack that resembles the texture of baked goods. Nutrient-dense and free from refined sugar, they are a good option for between meals or as a post-workout snack."
         }
@@ -688,7 +688,7 @@ export const answers = [{
 {
     no: 6,
     title: 'Hormone Soother',
-    image: './hormone-soother.png',
+    image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/hormone-soother.png',
     value: 'hs',
     causes: [
         {
@@ -724,16 +724,16 @@ export const answers = [{
         {
             no: 1,
             title: 'Chocolate',
-            icon: './chocolate.png',
-            image: './stuffed-dates.png',
+            icon: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/chocolate.png',
+            image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/stuffed-dates.png',
             lightboxTitle: 'Stuffed Dates',
             description: "Medjool dates stuffed with peanut butter or a small piece of dark chocolate provide the sweetness of a chocolate bar but contain more fibre and healthy fats."
         },
         {
             no: 2,
             title: 'Fried Foods',
-            icon: './fried.png',
-            image: './oven-treats.png',
+            icon: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/fried.png',
+            image: 'https://fractl.zavamed.com/campaign-zavacalculator/assets/images/oven-treats.png',
             lightboxTitle: 'Oven-baked treats',
             description: "Whether it's a portion of sweet potato fries or crispy chicken tenders, baking your snacks instead of frying them will retain the crispy texture and satisfying flavour of your favourite foods while being much lower in fat and calories. Use an air fryer for even crispier results."
         }
